@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,9 +10,11 @@
 
     <EditText
         android:id="@+id/cost_of_service"
-        android:layout_width="160dp"
+        android:layout_width="match_parent"
+        android:textSize="28sp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
         android:fontFamily="@font/nova_round"
         android:hint="@string/cost_of_service"
         android:inputType="numberDecimal"
@@ -42,12 +45,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_view" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        app:cornerRadius="100dp"
         android:id="@+id/calculate_btn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/black"
         android:text="@string/calculate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,10 +66,9 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calculate_btn"
-        tools:text="Tip Amount: $10"
-         />
+        tools:text="Tip Amount: $10" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -76,44 +79,66 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/survice_question">
 
-        <RadioGroup
-            android:id="@+id/tip_option"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+            <RadioGroup
+                android:id="@+id/tip_option"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option_twenty_precent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nova_round"
+                    android:text="@string/amazing_service" />
+
+                <RadioButton
+                    android:id="@+id/option_eighteen_precent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nova_round"
+                    android:text="@string/good_service" />
+
+                <RadioButton
+                    android:id="@+id/option_fifthteen_precent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/nova_round"
+                    android:text="@string/okay_service" />
+
+                <RadioButton
+                    android:id="@+id/option_user_set"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nova_round" />
+
+            </RadioGroup>
+
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:id="@+id/user_want_percent"
+            android:fontFamily="@font/nova_round"
+            android:hint="enter percentage%"
+            android:inputType="numberDecimal"
+            app:layout_constraintStart_toStartOf="@id/tip_option"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="6dp"/>
 
-            <RadioButton
-                android:id="@+id/option_twenty_precent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/nova_round"
-                android:text="@string/amazing_service" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <RadioButton
-                android:id="@+id/option_eighteen_precent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/nova_round"
-                android:text="@string/good_service" />
 
-            <RadioButton
-                android:id="@+id/option_fifthteen_precent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/nova_round"
-                android:text="@string/okay_service" />
+    </com.google.android.material.card.MaterialCardView>
 
-            <RadioButton
-                android:id="@+id/option_user_set"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nova_round" />
-        </RadioGroup>
-
-    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
